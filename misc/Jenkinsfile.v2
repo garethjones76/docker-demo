@@ -15,6 +15,7 @@ node {
    }
    stage('test with a DB') {
      def mysql = docker.image('mysql:5').withRun('-e "MYSQL_ALLOW_EMPTY_PASSWORD=yes") { c ->
+        // Wait until mysql service is up
         /* Wait until mysql service is up */
         sh 'while ! mysqladmin ping -h0.0.0.0 --silent; do sleep 1; done'
         /* Run some tests which require MySQL */
