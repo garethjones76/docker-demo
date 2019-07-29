@@ -17,7 +17,7 @@ node {
      def mysql = docker.image('mysql:5').withRun('-e "MYSQL_ALLOW_EMPTY_PASSWORD=yes"') { c ->
         /* Wait until mysql service is up */
         //sh 'while ! mysqladmin ping -h0.0.0.0 --silent; do sleep 1; done'
-        sh 'sleep 10'
+        sh 'sleep 20'
         /* Run some tests which require MySQL */
         //sh 'make check'
     }
